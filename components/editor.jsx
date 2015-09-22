@@ -40,7 +40,7 @@ renderer.code = function (code, lang, escaped) {
       '</code></pre>';
   }
 
-  return '<pre><code class="hljs-' + 
+  return '<pre><code class="hljs lang-' + 
     lang +
     (singleline ? ' singleline' : '') +
     '"><table>' +
