@@ -11,6 +11,7 @@ var app,
   hbs,
   morgan,
   port,
+  shortid,
   React,
   Editor;
 
@@ -24,6 +25,7 @@ hbs = require('hbs');
 morgan = require('morgan');
 React = require('react');
 Editor = React.createFactory(require('./components/editor.jsx'));
+shortid = require('shortid');
 
 // Set up connection to Redis
 var client;
@@ -61,6 +63,45 @@ app.get('/', function (req, res) {
   var markup = React.renderToString(Editor());
   res.render('index', {
     markup: markup
+  });
+});
+
+// Define submit route
+app.post('/', function (req, res) {
+  // Declare variables
+  var text, id;
+
+  // Get text
+  text = req.body.text;
+
+  // Create a hash
+  id = shortid.generate();
+
+  // Store them in Redis
+  client.set(id, text, function () {
+    // Send response
+    res.json('', {id: id});
+  });
+});
+
+// Define item route
+app.route('/:id').all(function (req, res) {
+  // Get ID
+  var id = req.params.id.trim();
+
+  // Look up the item
+  client.get(id, function (err, reply) {
+    if (!err && reply) {
+      // Render page
+      var markup = React.renderToString(Editor({ text: reply }));
+      res.render('index', {
+        markup: markup
+      });
+    } else {
+      // Confirm no such link in database
+      res.status(404);
+      res.render('error');
+    }
   });
 });
 
