@@ -47,7 +47,10 @@ app.use(express.static(__dirname + '/static'));
 
 // Define index route
 app.get('/', function (req, res) {
-  res.render('index');
+  var markup = React.renderToString(Editor());
+  res.render('index', {
+    markup: markup
+  });
 });
 
 // Listen
