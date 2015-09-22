@@ -3,6 +3,7 @@ node_js:
 - "0.10"
 - "0.12"
 - "4.0"
+services: redis-server
 sudo: false
 before_install:
  - npm install -g gulp
