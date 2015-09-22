@@ -73,9 +73,18 @@ var Editor = React.createClass({
   handleChange: function () {
     this.setState({value: React.findDOMNode(this.refs.textarea).value});
   },
+  handleSubmit: function (e) {
+    e.preventDefault();
+    var text = React.findDOMNode(this.refs.textarea).value.trim();
+    if (!text) {
+      return;
+    }
+    React.findDOMNode(this.refs.textarea).value = '';
+    this.handleChange();
+  },
   render: function () {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div className="Editor form-group">
           <h3>Input</h3>
           <textarea
@@ -85,6 +94,7 @@ var Editor = React.createClass({
             placeholder="Enter your markdown here"
             defaultValue={this.state.value} />
           <h3>Output</h3>
+          <button className="btn btn-primary">Submit</button>
           <div
             className="content"
             dangerouslySetInnerHTML={{
