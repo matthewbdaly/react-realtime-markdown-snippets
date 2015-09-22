@@ -75,20 +75,23 @@ var Editor = React.createClass({
   },
   render: function () {
     return (
-      <div className="Editor">
-        <h3>Input</h3>
-        <textarea
-          onChange={this.handleChange}
-          ref="textarea"
-          defaultValue={this.state.value} />
-        <h3>Output</h3>
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{
-            __html: marked(this.state.value, {sanitize: true})
-          }}
-        />
-      </div>
+      <form>
+        <div className="Editor form-group">
+          <h3>Input</h3>
+          <textarea
+            onChange={this.handleChange}
+            className="form-control"
+            ref="textarea"
+            defaultValue={this.state.value} />
+          <h3>Output</h3>
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{
+              __html: marked(this.state.value, {sanitize: true})
+            }}
+          />
+        </div>
+      </form>
     );
   }
 });
