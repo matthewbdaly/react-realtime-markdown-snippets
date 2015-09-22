@@ -6520,3 +6520,7 @@ pre code.hljs {
 .hljs.singleline {
   padding: 10px;
 }
+
+textarea {
+  min-height: 200px;
+}
