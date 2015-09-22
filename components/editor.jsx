@@ -68,7 +68,7 @@ marked.setOptions(mdoptions);
 
 var Editor = React.createClass({
   getInitialState: function () {
-    return {value: 'Enter your markdown here'};
+    return {value: ''};
   },
   handleChange: function () {
     this.setState({value: React.findDOMNode(this.refs.textarea).value});
@@ -82,6 +82,7 @@ var Editor = React.createClass({
             onChange={this.handleChange}
             className="form-control"
             ref="textarea"
+            placeholder="Enter your markdown here"
             defaultValue={this.state.value} />
           <h3>Output</h3>
           <div

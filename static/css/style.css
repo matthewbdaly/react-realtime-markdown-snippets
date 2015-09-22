@@ -6475,6 +6475,20 @@ p li li, li li li {
   font-size: 100%;
 }
 
+.linenos {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  float: left;
+  background-color: grey;
+  color: #d1d9e1;
+  width: 30px;
+  text-align: center;
+  margin-right: 10px;
+}
+
 code {
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -6498,4 +6512,11 @@ pre code {
 }
 pre code.hljs {
   padding-right: 10px;
+}
+
+.hljs {
+  padding: 0;
+}
+.hljs.singleline {
+  padding: 10px;
 }

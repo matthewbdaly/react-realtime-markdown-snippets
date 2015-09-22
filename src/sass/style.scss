@@ -35,6 +35,17 @@ p, li {
         }
     }
 }
+
+.linenos {
+    @include user-select(none);
+    float: left;
+    background-color: grey;
+    color: #d1d9e1;
+    width: 30px;
+    text-align: center;
+    margin-right: 10px;
+}
+
 code {
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -56,5 +67,13 @@ pre {
         &.hljs {
             padding-right: 10px;
         }
+    }
+}
+
+.hljs {
+    padding: 0;
+
+    &.singleline {
+        padding: 10px;
     }
 }
