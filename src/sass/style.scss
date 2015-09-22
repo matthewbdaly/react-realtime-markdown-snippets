@@ -1,3 +1,60 @@
-@import "compass";
+@import "compass/css3/user-interface";
+@import "compass/css3";
 @import "../../static/bower_components/sass-bootstrap/lib/bootstrap.scss";
 @import "solarized_dark";
+
+[data-pseudo-content]::before,
+[data-pseudo-content--before]::before,
+[data-pseudo-content--after]::after {
+    content: attr(data-pseudo-content);
+}
+
+h1 {
+    font-size: 3em;
+    line-height: 1.2em;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+h2 {
+    font-size: 2em;
+    line-height: 1.5em;
+}
+
+p, li {
+    font-size: 1.4em;
+    line-height: 1.5em;
+
+    li {
+        font-size: 100%;
+
+        li {
+            font-size: 100%;
+        }
+    }
+}
+code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: Menlo, Monaco, "Andale Mono", "Ubuntu Mono", "lucida console", monospace;
+}
+
+pre {
+    padding: 0;
+    margin-bottom: 0;
+    overflow-x: auto;
+
+    code {
+        display: block;
+        overflow-wrap: normal;
+        word-wrap: normal;
+        white-space: pre;
+        font-family: Menlo, Monaco, "Andale Mono", "Ubuntu Mono", "lucida console", monospace;
+        @include border-radius(4px, 4px);
+        &.hljs {
+            padding-right: 10px;
+        }
+    }
+}

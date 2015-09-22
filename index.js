@@ -30,6 +30,9 @@ app.set('views', __dirname + '/views');
 app.set('view engine', "hbs");
 app.engine('hbs', require('hbs').__express);
 
+// Register partials
+hbs.registerPartials(__dirname + '/views/partials');
+
 // Set up logging
 app.use(morgan('combined'));
 
