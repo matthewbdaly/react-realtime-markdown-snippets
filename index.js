@@ -25,6 +25,14 @@ morgan = require('morgan');
 React = require('react');
 Editor = React.createFactory(require('./components/editor.jsx'));
 
+// Set up connection to Redis
+var client;
+if (process.env.REDIS_URL) {
+  client = require('redis').createClient(process.env.REDIS_URL);
+} else {
+  client = require('redis').createClient();
+}
+
 // Set up templating
 app.set('views', __dirname + '/views');
 app.set('view engine', "hbs");
