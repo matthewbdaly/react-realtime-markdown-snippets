@@ -7,6 +7,7 @@ require('babel/register');
 var app,
   base_url,
   bodyParser,
+  compression,
   express,
   hbs,
   morgan,
@@ -18,6 +19,7 @@ var app,
 // Define values
 express = require('express');
 app = express();
+compression = require('compression');
 port = process.env.PORT || 5000;
 base_url = process.env.BASE_URL || 'http://localhost:5000';
 bodyParser = require('body-parser');
@@ -45,6 +47,9 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 // Set up logging
 app.use(morgan('combined'));
+
+// Compress responses
+app.use(compression());
 
 // Set URL
 app.set('base_url', base_url);
