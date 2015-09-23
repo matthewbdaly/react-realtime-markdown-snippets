@@ -63,7 +63,7 @@ app.get('/', function (req, res) {
   var markup = React.renderToString(Editor());
   res.render('index', {
     markup: markup,
-    state: null
+    state: "Just testing"
   });
 });
 
