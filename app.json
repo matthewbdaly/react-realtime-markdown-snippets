@@ -1,5 +1,5 @@
 {
-  "name": "React Realtime Markdown Snippets",
+  "name": "React Realtime Markdown",
   "description": "A simple isomorphic Markdown snippet editor built with React",
   "repository": "https://github.com/matthewbdaly/react-realtime-markdown-snippets",
   "keywords": ["node", "express", "react", "javascript", "isomorphic"],
