@@ -1,6 +1,7 @@
 var React = require('react');
 var marked = require('marked');
 var hljs = require('highlight.js');
+var $ = require('jquery');
 
 // Get languages
 var langs = hljs.listLanguages();
@@ -79,8 +80,17 @@ var Editor = React.createClass({
     if (!text) {
       return;
     }
-    React.findDOMNode(this.refs.textarea).value = '';
-    this.handleChange();
+    $.ajax({
+      url: '/',
+      dataType: 'json',
+      type: 'POST',
+      data: {text: text},
+      success: function (data) {
+        console.log(data);
+        React.findDOMNode(this.refs.textarea).value = '';
+        this.handleChange();
+      }
+    });
   },
   render: function () {
     return (
