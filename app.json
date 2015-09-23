@@ -5,6 +5,6 @@
   "keywords": ["node", "express", "react", "javascript", "isomorphic"],
   "success_ur;": "/",
   "addons": [
-    "mongolab"
+    "heroku-redis"
   ]
 }
