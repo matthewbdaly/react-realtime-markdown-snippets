@@ -86,9 +86,7 @@ var Editor = React.createClass({
       type: 'POST',
       data: {text: text},
       success: function (data) {
-        console.log(data);
-        React.findDOMNode(this.refs.textarea).value = '';
-        this.handleChange();
+        history.pushState(null, null, data.id);
       }
     });
   },
