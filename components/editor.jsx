@@ -68,7 +68,7 @@ marked.setOptions(mdoptions);
 
 var Editor = React.createClass({
   getInitialState: function () {
-    return {value: ''};
+    return {value: this.props.value || ''};
   },
   handleChange: function () {
     this.setState({value: React.findDOMNode(this.refs.textarea).value});

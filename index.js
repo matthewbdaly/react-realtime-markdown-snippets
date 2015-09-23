@@ -60,10 +60,11 @@ app.use(express.static(__dirname + '/static'));
 
 // Define index route
 app.get('/', function (req, res) {
-  var markup = React.renderToString(Editor());
+  var initialValue = '';
+  var markup = React.renderToString(Editor({ value: initialValue }));
   res.render('index', {
     markup: markup,
-    state: "Just testing"
+    state: initialValue
   });
 });
 
@@ -94,10 +95,11 @@ app.route('/:id').all(function (req, res) {
   client.get(id, function (err, reply) {
     if (!err && reply) {
       // Render page
-      var markup = React.renderToString(Editor({ text: reply }));
+      var initialValue = reply;
+      var markup = React.renderToString(Editor({ value: initialValue }));
       res.render('index', {
         markup: markup,
-        state: reply
+        state: initialValue
       });
     } else {
       // Confirm no such link in database
