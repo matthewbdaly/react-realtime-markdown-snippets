@@ -82,7 +82,7 @@ app.post('/', function (req, res) {
   // Store them in Redis
   client.set(id, text, function () {
     // Send response
-    res.json('', {id: id});
+    res.status(201).json({id: id});
   });
 });
 
