@@ -62,7 +62,8 @@ app.use(express.static(__dirname + '/static'));
 app.get('/', function (req, res) {
   var markup = React.renderToString(Editor());
   res.render('index', {
-    markup: markup
+    markup: markup,
+    state: null
   });
 });
 
@@ -95,7 +96,8 @@ app.route('/:id').all(function (req, res) {
       // Render page
       var markup = React.renderToString(Editor({ text: reply }));
       res.render('index', {
-        markup: markup
+        markup: markup,
+        state: reply
       });
     } else {
       // Confirm no such link in database
